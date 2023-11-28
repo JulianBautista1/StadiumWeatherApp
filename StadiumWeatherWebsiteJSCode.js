@@ -31,8 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function requestApi(city) {
-    const formattedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
-    api = "https://pvq5q52hi0.execute-api.us-east-2.amazonaws.com/StadiumWeatherProduction/stadium-info?city=" + encodeURIComponent(formattedCity);
+    // const formattedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+    // api = "https://pvq5q52hi0.execute-api.us-east-2.amazonaws.com/StadiumWeatherProduction/stadium-info?city=" + encodeURIComponent(formattedCity);
+    // fetchData();
+    const formattedCity = encodeURIComponent(city.trim());
+    api = `https://pvq5q52hi0.execute-api.us-east-2.amazonaws.com/StadiumWeatherProduction/stadium-info?city=${formattedCity}`;
     fetchData();
   }
   
